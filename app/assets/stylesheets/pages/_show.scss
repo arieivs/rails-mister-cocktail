@@ -1,0 +1,12 @@
+.show-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.show-left-top i {
+  color: #F74500;
+  &:hover {
+    color: rgb(211, 56, 0);
+  }
+}

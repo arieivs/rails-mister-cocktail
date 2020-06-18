@@ -1,11 +1,19 @@
-<h1>Cocktails</h1>
+<div class="container mt-3">
+  <div class="header">
+    <h1>Cocktails</h1>
+  </div>
 
-<% @cocktails.each do |cocktail| %>
-  <div class="card" style="width: 18rem; height: 100px; background-image: url(https://source.unsplash.com/1600x900/?<%= cocktail.name %>); background-size: cover">
-    <div class="card-body">
-      <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+  <div class="container">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <%= link_to cocktail_path(cocktail), class: "product-link" do %>
+            <div class="product-card my-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?<%= cocktail.name.gsub(/\s/, '%20') %>);">
+              <p><%= cocktail.name %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
-
-<%= link_to 'Add a Cocktail', new_cocktail_path, class: "btn btn-warning" %>
+</div>

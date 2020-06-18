@@ -1,11 +1,38 @@
-<h1><%= @cocktail.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?<%= @cocktail.name.gsub(/\s/, '%20') %>);">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+</div>
 
-<% @cocktail.ingredients.each do |ingredient| %>
-  <p>
-    <%= @doses.find_by(ingredient_id: ingredient.id).description %> of
-    <%= ingredient.name %>
-  </p>
-<% end %>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-12 col-md-6 show-left">
+      <div class="show-left-top">
+        <h2>How to make <%= @cocktail.name %></h2>
+        <% @cocktail.ingredients.each do |ingredient| %>
+          <p>
+            <%= @doses.find_by(ingredient_id: ingredient.id).description %> of
+            <%= ingredient.name %>
+            <%= link_to cocktail_dose_path(@cocktail, @doses.find_by(ingredient_id: ingredient.id)),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } do %>
+                        <i class="far fa-trash-alt"></i>
+                        <% end %>
+          </p>
+        <% end %>
+      </div>
+      <div class="show-left-bottom">
+        <%= link_to 'Back to Cocktails', cocktails_path, class: "btn btn-dark" %>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <h3>Add more ingredients</h3>
 
-<%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-warning"%>
-<%= link_to 'Back to Cocktails', cocktails_path, class: "btn btn-dark" %>
+      <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+        <%= f.association :ingredient %>
+        <%= f.input :description %>
+        <%= f.submit "Add Ingredient", class: "btn btn-orange" %>
+      <% end %>
+    </div>
+  </div>
+</div>

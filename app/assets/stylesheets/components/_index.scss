@@ -2,3 +2,26 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+.product-card {
+  height: 200px;
+  background-size: cover;
+  border-radius: 2px;
+  box-shadow: 2px 2px 3px rgb(220, 220, 220);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: white;
+  transition: all .2s ease-in-out;
+  p {
+    margin: 0;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.product-link:hover {
+  text-decoration: none;
+}
