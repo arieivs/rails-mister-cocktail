@@ -1,0 +1,11 @@
+<h1>Cocktails</h1>
+
+<% @cocktails.each do |cocktail| %>
+  <div class="card" style="width: 18rem; height: 100px; background-image: url(https://source.unsplash.com/1600x900/?<%= cocktail.name %>); background-size: cover">
+    <div class="card-body">
+      <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to 'Add a Cocktail', new_cocktail_path, class: "btn btn-warning" %>

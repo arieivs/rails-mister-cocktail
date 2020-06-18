@@ -1,0 +1,11 @@
+<h1><%= @cocktail.name %></h1>
+
+<% @cocktail.ingredients.each do |ingredient| %>
+  <p>
+    <%= @doses.find_by(ingredient_id: ingredient.id).description %> of
+    <%= ingredient.name %>
+  </p>
+<% end %>
+
+<%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-warning"%>
+<%= link_to 'Back to Cocktails', cocktails_path, class: "btn btn-dark" %>
