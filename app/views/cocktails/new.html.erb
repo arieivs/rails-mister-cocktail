@@ -5,6 +5,7 @@
   <div class="small-container" style="max-width: 500px; margin: 0 auto;">
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
       <%= f.submit "Add Cocktail", class: "btn btn-orange" %>
     <% end %>
     <br>
