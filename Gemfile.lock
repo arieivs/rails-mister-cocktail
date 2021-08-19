@@ -242,11 +242,7 @@ DEPENDENCIES
   json
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
-<<<<<<< HEAD
-  puma (~> 4.3.5)
-=======
   puma (~> 4.3)
->>>>>>> f670f50ebd96e0523a00506b814b152086c46f23
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-controller-testing
   rspec-rails (= 4.0.0.beta3)
